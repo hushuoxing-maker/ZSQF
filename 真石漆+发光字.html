@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>古月·真石漆+发光字门头提示词生成器</title>
+<style>
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+body{
+  background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
+  min-height: 100vh;
+  padding: 20px 0 60px;
+}
+/* 顶部标题栏 */
+.header{
+  width: 100%;
+  background: linear-gradient(90deg, #78716C, #57534E);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 16px rgba(120,113,108,0.12);
+}
+.header h1{
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.header p{
+  font-size: 15px;
+  opacity: 0.9;
+}
+/* 输入容器 */
+.input-wrap{
+  max-width: 800px;
+  margin: 0 auto 30px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+.label{
+  font-size: 16px;
+  color: #1F2937;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.input-box{
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s;
+  margin-bottom: 20px;
+}
+.input-box:focus{
+  border-color: #78716C;
+  box-shadow: 0 0 0 4px rgba(120,113,108,0.1);
+}
+.gen-btn{
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #78716C, #928A85);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.gen-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(120,113,108,0.15);
+}
+.gen-btn:disabled{
+  background: #B9B3AD;
+  cursor: not-allowed;
+  transform: none;
+}
+/* 结果区域 */
+.result-wrap{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.result-item{
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border-left: 4px solid #78716C;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.item-text{
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+.copy-btn{
+  padding: 8px 12px;
+  background: #78716C;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+.copy-btn:hover{
+  background: #645E59;
+}
+.copy-btn.copied{
+  background: #CCCCCC !important;
+  color: #666666 !important;
+  cursor: default !important;
+}
+/* 一键复制全部 */
+.copy-all-btn{
+  display: block;
+  margin: 20px auto 0;
+  padding: 12px 24px;
+  background: #78716C;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.copy-all-btn:hover{
+  background: #645E59;
+}
+</style>
+
+<!-- 顶部标题 -->
+<div class="header">
+  <h1>🪨 古月·真石漆+发光字门头提示词生成器</h1>
+  <p>白天正立面｜平视无遮挡｜8K写实｜100%可施工</p>
+</div>
+
+<!-- 输入区域 -->
+<div class="input-wrap">
+  <div class="label">请输入店铺行业类型（必填）</div>
+  <input type="text" class="input-box" id="industryInput" placeholder="例如：高端餐饮、商务会所、建材家居、医美机构、汽车服务、烟酒茶行">
+  <button class="gen-btn" id="genBtn" onclick="generatePrompts()">🚀 生成20组提示词</button>
+</div>
+
+<!-- 结果展示区域 -->
+<div class="result-wrap" id="resultWrap"></div>
+
+<script>
+// 存储所有生成的提示词
+let allPrompts = [];
+
+// 生成单条提示词（保证20组不重复）
+function createPrompt(industry, index) {
+  // 主营品类+标语变体库（20组不重复，贴合真石漆门头高端简约风格）
+  const variants = [
+    "主营品类+高端简约标语", "特色品类+大气稳重标语", "招牌品类+高级质感标语",
+    "核心品类+简约大气标语", "爆款品类+高端质感标语", "主营项目+简约稳重标语",
+    "特色项目+高端大气标语", "招牌项目+简约质感标语", "核心项目+高端稳重标语",
+    "爆款项目+简约大气标语", "主营服务+高端质感标语", "特色服务+简约稳重标语",
+    "招牌服务+大气高级标语", "核心服务+高端简约标语", "爆款服务+简约质感标语",
+    "主营产品+大气稳重标语", "特色产品+高端质感标语", "招牌产品+简约大气标语",
+    "核心产品+高端稳重标语", "爆款产品+大气高级标语"
+  ];
+
+  // 拼接完整提示词（包含所有强制元素）
+  return `白天自然光，门头正立面，完整展示，正面平视视角，无透视畸变，无遮挡，真石漆墙面加发光字门头，石材质感、厚重大气、简约高级，${industry}店铺门头，真石漆墙面、仿石漆、不锈钢背光字、亚克力发光字、悬空背支架、金属包边，品牌店名+${variants[index]}，稳重清晰字体，日间发光字立体高亮，真石漆纹理质感强烈，8K高清，商业写实效果图，细节丰富，色彩自然，可直接施工参考`;
+}
+
+// 复制单条提示词（永久变灰）
+function copySingle(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.textContent = "已复制";
+  });
+}
+
+// 一键复制全部20组
+function copyAll() {
+  const allText = allPrompts.join("\n\n");
+  navigator.clipboard.writeText(allText).then(() => {
+    alert("✅ 已成功复制全部20组提示词！");
+  });
+}
+
+// 生成20组提示词主函数
+function generatePrompts() {
+  const industry = document.getElementById("industryInput").value.trim();
+  const genBtn = document.getElementById("genBtn");
+  const resultWrap = document.getElementById("resultWrap");
+
+  // 校验输入
+  if (!industry) {
+    alert("请输入店铺行业类型（如：高端餐饮、商务会所、建材家居等）");
+    return;
+  }
+
+  // 按钮加载状态
+  genBtn.disabled = true;
+  genBtn.textContent = "正在生成...";
+  resultWrap.innerHTML = "";
+  allPrompts = [];
+
+  // 生成逻辑
+  setTimeout(() => {
+    let resultHtml = "";
+    for (let i = 0; i < 20; i++) {
+      const prompt = createPrompt(industry, i);
+      allPrompts.push(prompt);
+      resultHtml += `
+        <div class="result-item">
+          <div class="item-text">${i+1}. ${prompt}</div>
+          <button class="copy-btn" onclick="copySingle('${prompt.replace(/'/g, "&apos;")}', this)">复制</button>
+        </div>
+      `;
+    }
+
+    // 添加一键复制按钮
+    resultHtml += `<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部20组</button>`;
+    
+    // 渲染结果
+    resultWrap.innerHTML = resultHtml;
+    
+    // 恢复按钮状态
+    genBtn.disabled = false;
+    genBtn.textContent = "🚀 生成20组提示词";
+  }, 800);
+}
+</script>
+</body>
+</html>

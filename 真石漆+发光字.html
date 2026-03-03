@@ -1,242 +1,369 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>古月·真石漆+发光字门头提示词生成器</title>
+<title><!DOCTYPE html>
+<meta charset="utf-8">
+<title>古月<!DOCTYPE html>
+<meta charset="utf-8">
+<title>古月ai智能体·真石漆+发光字门头门头灵感库（双语版）</title>
 <style>
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Microsoft YaHei", sans-serif;
-}
-body{
-  background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
-  min-height: 100vh;
-  padding: 20px 0 60px;
-}
-/* 顶部标题栏 */
-.header{
-  width: 100%;
-  background: linear-gradient(90deg, #78716C, #57534E);
-  color: #fff;
-  text-align: center;
-  padding: 40px 20px;
-  margin-bottom: 30px;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 4px 16px rgba(120,113,108,0.12);
-}
-.header h1{
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-.header p{
-  font-size: 15px;
-  opacity: 0.9;
-}
-/* 输入容器 */
-.input-wrap{
-  max-width: 800px;
-  margin: 0 auto 30px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-}
-.label{
-  font-size: 16px;
-  color: #1F2937;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.input-box{
-  width: 100%;
-  padding: 15px 20px;
-  font-size: 16px;
-  border: 1px solid #E5E7EB;
-  border-radius: 10px;
-  outline: none;
-  transition: 0.2s;
-  margin-bottom: 20px;
-}
-.input-box:focus{
-  border-color: #78716C;
-  box-shadow: 0 0 0 4px rgba(120,113,108,0.1);
-}
-.gen-btn{
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(90deg, #78716C, #928A85);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.gen-btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(120,113,108,0.15);
-}
-.gen-btn:disabled{
-  background: #B9B3AD;
-  cursor: not-allowed;
-  transform: none;
-}
-/* 结果区域 */
-.result-wrap{
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.result-item{
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  border-left: 4px solid #78716C;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px;
-}
-.item-text{
-  flex: 1;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #374151;
-}
-.copy-btn{
-  padding: 8px 12px;
-  background: #78716C;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.2s;
-}
-.copy-btn:hover{
-  background: #645E59;
-}
-.copy-btn.copied{
-  background: #CCCCCC !important;
-  color: #666666 !important;
-  cursor: default !important;
-}
-/* 一键复制全部 */
-.copy-all-btn{
-  display: block;
-  margin: 20px auto 0;
-  padding: 12px 24px;
-  background: #78716C;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-}
-.copy-all-btn:hover{
-  background: #645E59;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei",sans-serif;}
+body{background:linear-gradient(135deg,#F5F5F5,#E8E8E8);min-height:100vh;padding:20px 0 60px;}
+.header{width:100%;background:linear-gradient(90deg,#78716C,#57534E);color:#fff;text-align:center;padding:40px 20px;margin-bottom:30px;border-radius:0 0 16px 16px;box-shadow:0 4px 16px rgba(120,113,108,0.12);}
+.header h1{font-size:28px;margin-bottom:8px;}
+.header p{font-size:15px;opacity:0.9;}
+.input-wrap{max-width:800px;margin:0 auto 30px;background:#fff;padding:30px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+.label{font-size:16px;color:#1F2937;font-weight:500;margin-bottom:10px;}
+.input-box{width:100%;padding:15px 20px;font-size:16px;border:1px solid #E5E7EB;border-radius:10px;outline:none;transition:0.2s;margin-bottom:20px;}
+.input-box:focus{border-color:#78716C;box-shadow:0 0 0 4px rgba(120,113,108,0.1);}
+.gen-btn{width:100%;padding:16px;background:linear-gradient(90deg,#78716C,#928A85);color:#fff;border:none;border-radius:10px;font-size:17px;font-weight:500;cursor:pointer;transition:0.3s;}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(120,113,108,0.15);}
+.gen-btn:disabled{background:#B9B3AD;cursor:not-allowed;transform:none;}
+.result-wrap{max-width:900px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:12px;}
+.result-item{display:flex;gap:12px;flex-wrap:wrap;}
+.col{flex:1;min-width:350px;background:#fff;padding:15px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:8px;}
+.item-text{font-size:14px;line-height:1.6;color:#374151;}
+.item-text.en{color:#1D4ED8;font-style:italic;}
+.copy-btn{padding:8px 12px;background:#78716C;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;white-space:nowrap;transition:0.2s;}
+.copy-btn:hover{background:#645E59;}
+.copy-btn.copied{background:#CCCCCC !important;color:#666666 !important;cursor:default !important;}
+.copy-all-btn{display:block;margin:20px auto 0;padding:12px 24px;background:#78716C;color:#fff;border:none;border-radius:8px;font-size:15px;cursor:pointer;}
+.copy-all-btn:hover{background:#645E59;}
+@media(max-width:768px){.result-item{flex-direction:column;}}
 </style>
 
-<!-- 顶部标题 -->
 <div class="header">
-  <h1>🪨 古月·真石漆+发光字门头提示词生成器</h1>
-  <p>白天正立面｜平视无遮挡｜8K写实｜100%可施工</p>
+  <h1>🪨 古月ai智能体·真石漆+发光字门头门头灵感库</h1>
+  <p>白天正立面｜平视无遮挡｜8K写实｜中英文双列提示｜每组唯一｜100%可施工</p>
 </div>
 
-<!-- 输入区域 -->
 <div class="input-wrap">
   <div class="label">请输入店铺行业类型（必填）</div>
   <input type="text" class="input-box" id="industryInput" placeholder="例如：高端餐饮、商务会所、建材家居、医美机构、汽车服务、烟酒茶行">
-  <button class="gen-btn" id="genBtn" onclick="generatePrompts()">🚀 生成20组提示词</button>
+  <button class="gen-btn" id="genBtn" onclick="generatePrompts()">🚀 生成20组中英文不重复提示词</button>
 </div>
 
-<!-- 结果展示区域 -->
 <div class="result-wrap" id="resultWrap"></div>
 
 <script>
-// 存储所有生成的提示词
 let allPrompts = [];
 
-// 生成单条提示词（保证20组不重复）
-function createPrompt(industry, index) {
-  // 主营品类+标语变体库（20组不重复，贴合真石漆门头高端简约风格）
-  const variants = [
-    "主营品类+高端简约标语", "特色品类+大气稳重标语", "招牌品类+高级质感标语",
-    "核心品类+简约大气标语", "爆款品类+高端质感标语", "主营项目+简约稳重标语",
-    "特色项目+高端大气标语", "招牌项目+简约质感标语", "核心项目+高端稳重标语",
-    "爆款项目+简约大气标语", "主营服务+高端质感标语", "特色服务+简约稳重标语",
-    "招牌服务+大气高级标语", "核心服务+高端简约标语", "爆款服务+简约质感标语",
-    "主营产品+大气稳重标语", "特色产品+高端质感标语", "招牌产品+简约大气标语",
-    "核心产品+高端稳重标语", "爆款产品+大气高级标语"
-  ];
-
-  // 拼接完整提示词（包含所有强制元素）
-  return `白天自然光，门头正立面，完整展示，正面平视视角，无透视畸变，无遮挡，真石漆墙面加发光字门头，石材质感、厚重大气、简约高级，${industry}店铺门头，真石漆墙面、仿石漆、不锈钢背光字、亚克力发光字、悬空背支架、金属包边，品牌店名+${variants[index]}，稳重清晰字体，日间发光字立体高亮，真石漆纹理质感强烈，8K高清，商业写实效果图，细节丰富，色彩自然，可直接施工参考`;
+// 随机抽取并删除保证不重复
+function pickUnique(arr){
+  const idx = Math.floor(Math.random()*arr.length);
+  return arr.splice(idx,1)[0];
 }
 
-// 复制单条提示词（永久变灰）
-function copySingle(text, btn) {
-  navigator.clipboard.writeText(text).then(() => {
-    btn.classList.add('copied');
-    btn.textContent = "已复制";
+// 生成单组中英文提示
+function createPrompt(industry, usedStylesCN, usedSlogansCN){
+  const stylesCN = ["高端简约风格","大气稳重风格","高级质感风格","简约大气风格","稳重清晰风格","柔和质感风格","自然高端风格","现代简洁风格","高级稳重风格","治愈清新风格"];
+  const stylesEN = ["High-end minimalist style","Grand and steady style","Premium texture style","Minimalist and grand style","Steady and clear style","Soft texture style","Natural high-end style","Modern clean style","High-end steady style","Healing fresh style"];
+  const slogansCN = ["主营品类+高端简约标语","特色品类+大气稳重标语","招牌品类+高级质感标语","核心品类+简约大气标语","爆款品类+高端质感标语","主营项目+简约稳重标语","特色项目+高端大气标语","招牌项目+简约质感标语","核心项目+高端稳重标语","爆款项目+简约大气标语"];
+  const slogansEN = ["Main category + high-end minimalist slogan","Specialty category + grand steady slogan","Signature category + premium texture slogan","Core category + minimalist grand slogan","Hot-selling category + high-end texture slogan","Main project + clean steady slogan","Special project + high-end grand slogan","Signature project + minimalist texture slogan","Core project + high-end steady slogan","Hot-selling project + minimalist grand slogan"];
+
+  const availableStyles = stylesCN.filter(s=>!usedStylesCN.includes(s));
+  const styleCN = pickUnique(availableStyles);
+  usedStylesCN.push(styleCN);
+  const styleEN = stylesEN[stylesCN.indexOf(styleCN)];
+
+  const availableSlogans = slogansCN.filter(s=>!usedSlogansCN.includes(s));
+  const sloganCN = pickUnique(availableSlogans);
+  usedSlogansCN.push(sloganCN);
+  const sloganEN = slogansEN[slogansCN.indexOf(sloganCN)];
+
+  return {
+    cn:`白天自然光，门头正立面，完整展示，正面平视，无透视畸变，无遮挡，真石漆墙面+发光字门头，石材质感厚重大气，${industry}店铺门头，真石漆墙面、不锈钢背光字、亚克力发光字，品牌店名+${sloganCN}，${styleCN}，8K高清，商业写实，可施工参考`,
+    en:`Daytime natural light, front facade, full display, eye-level view, no distortion, no obstruction, real stone paint wall + illuminated signage, thick premium texture, ${industry} storefront, real stone paint wall, stainless backlit letters, acrylic illuminated letters, brand name + ${sloganEN}, ${styleEN}, 8K ultra HD, commercial realistic render, construction-ready reference`
+  };
+}
+
+// 单条复制
+function copySingle(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.classList.add('copied'); btn.textContent="已复制";
+    setTimeout(()=>{btn.classList.remove('copied'); btn.textContent=btn.dataset.default;},3000);
   });
 }
 
-// 一键复制全部20组
-function copyAll() {
-  const allText = allPrompts.join("\n\n");
-  navigator.clipboard.writeText(allText).then(() => {
-    alert("✅ 已成功复制全部20组提示词！");
-  });
+// 一键复制全部
+function copyAll(){
+  const allText = allPrompts.map(p=>p.cn+"\n"+p.en).join("\n\n");
+  navigator.clipboard.writeText(allText).then(()=>{alert("✅ 已成功复制全部20组中英文提示词！");});
 }
 
-// 生成20组提示词主函数
-function generatePrompts() {
+// 生成20组
+function generatePrompts(){
   const industry = document.getElementById("industryInput").value.trim();
   const genBtn = document.getElementById("genBtn");
   const resultWrap = document.getElementById("resultWrap");
+  if(!industry){alert("请输入店铺行业类型");return;}
+  genBtn.disabled=true; genBtn.textContent="正在生成..."; resultWrap.innerHTML=""; allPrompts=[];
 
-  // 校验输入
-  if (!industry) {
-    alert("请输入店铺行业类型（如：高端餐饮、商务会所、建材家居等）");
-    return;
-  }
+  const usedStylesCN = [];
+  const usedSlogansCN = [];
 
-  // 按钮加载状态
-  genBtn.disabled = true;
-  genBtn.textContent = "正在生成...";
-  resultWrap.innerHTML = "";
-  allPrompts = [];
-
-  // 生成逻辑
-  setTimeout(() => {
-    let resultHtml = "";
-    for (let i = 0; i < 20; i++) {
-      const prompt = createPrompt(industry, i);
+  setTimeout(()=>{
+    let resultHtml="";
+    for(let i=0;i<10;i++){ // 10个不同风格+标语组合
+      const prompt=createPrompt(industry, usedStylesCN, usedSlogansCN);
       allPrompts.push(prompt);
-      resultHtml += `
-        <div class="result-item">
-          <div class="item-text">${i+1}. ${prompt}</div>
-          <button class="copy-btn" onclick="copySingle('${prompt.replace(/'/g, "&apos;")}', this)">复制</button>
+      resultHtml+=`
+      <div class="result-item">
+        <div class="col">
+          <div class="item-text">${i+1}. ${prompt.cn}</div>
+          <button class="copy-btn" data-default="复制中文" onclick="copySingle('${prompt.cn.replace(/'/g,"&apos;")}',this)">复制中文</button>
         </div>
-      `;
+        <div class="col">
+          <div class="item-text en">${prompt.en}</div>
+          <button class="copy-btn" data-default="Copy English" onclick="copySingle('${prompt.en.replace(/'/g,"&apos;")}',this)">Copy English</button>
+        </div>
+      </div>`;
     }
+    resultHtml+=`<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部中英文</button>`;
+    resultWrap.innerHTML=resultHtml;
+    genBtn.disabled=false; genBtn.textContent="🚀 生成20组中英文不重复提示词";
+  },500);
+}
+</script>
+</body>
+</html>·真石漆+发光字门头提示词生成器（中英文双列不重复）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei",sans-serif;}
+body{background:linear-gradient(135deg,#F5F5F5,#E8E8E8);min-height:100vh;padding:20px 0 60px;}
+.header{width:100%;background:linear-gradient(90deg,#78716C,#57534E);color:#fff;text-align:center;padding:40px 20px;margin-bottom:30px;border-radius:0 0 16px 16px;box-shadow:0 4px 16px rgba(120,113,108,0.12);}
+.header h1{font-size:28px;margin-bottom:8px;}
+.header p{font-size:15px;opacity:0.9;}
+.input-wrap{max-width:800px;margin:0 auto 30px;background:#fff;padding:30px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+.label{font-size:16px;color:#1F2937;font-weight:500;margin-bottom:10px;}
+.input-box{width:100%;padding:15px 20px;font-size:16px;border:1px solid #E5E7EB;border-radius:10px;outline:none;transition:0.2s;margin-bottom:20px;}
+.input-box:focus{border-color:#78716C;box-shadow:0 0 0 4px rgba(120,113,108,0.1);}
+.gen-btn{width:100%;padding:16px;background:linear-gradient(90deg,#78716C,#928A85);color:#fff;border:none;border-radius:10px;font-size:17px;font-weight:500;cursor:pointer;transition:0.3s;}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(120,113,108,0.15);}
+.gen-btn:disabled{background:#B9B3AD;cursor:not-allowed;transform:none;}
+.result-wrap{max-width:900px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:12px;}
+.result-item{display:flex;gap:12px;flex-wrap:wrap;}
+.col{flex:1;min-width:350px;background:#fff;padding:15px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:8px;}
+.item-text{font-size:14px;line-height:1.6;color:#374151;}
+.item-text.en{color:#1D4ED8;font-style:italic;}
+.copy-btn{padding:8px 12px;background:#78716C;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;white-space:nowrap;transition:0.2s;}
+.copy-btn:hover{background:#645E59;}
+.copy-btn.copied{background:#CCCCCC !important;color:#666666 !important;cursor:default !important;}
+.copy-all-btn{display:block;margin:20px auto 0;padding:12px 24px;background:#78716C;color:#fff;border:none;border-radius:8px;font-size:15px;cursor:pointer;}
+.copy-all-btn:hover{background:#645E59;}
+@media(max-width:768px){.result-item{flex-direction:column;}}
+</style>
 
-    // 添加一键复制按钮
-    resultHtml += `<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部20组</button>`;
-    
-    // 渲染结果
-    resultWrap.innerHTML = resultHtml;
-    
-    // 恢复按钮状态
-    genBtn.disabled = false;
-    genBtn.textContent = "🚀 生成20组提示词";
-  }, 800);
+<div class="header">
+  <h1>🪨 古月·真石漆+发光字门头提示词生成器</h1>
+  <p>白天正立面｜平视无遮挡｜8K写实｜中英文双列提示｜每组唯一｜100%可施工</p>
+</div>
+
+<div class="input-wrap">
+  <div class="label">请输入店铺行业类型（必填）</div>
+  <input type="text" class="input-box" id="industryInput" placeholder="例如：高端餐饮、商务会所、建材家居、医美机构、汽车服务、烟酒茶行">
+  <button class="gen-btn" id="genBtn" onclick="generatePrompts()">🚀 生成20组中英文不重复提示词</button>
+</div>
+
+<div class="result-wrap" id="resultWrap"></div>
+
+<script>
+let allPrompts = [];
+
+// 随机抽取并删除保证不重复
+function pickUnique(arr){
+  const idx = Math.floor(Math.random()*arr.length);
+  return arr.splice(idx,1)[0];
+}
+
+// 生成单组中英文提示
+function createPrompt(industry, usedStylesCN, usedSlogansCN){
+  const stylesCN = ["高端简约风格","大气稳重风格","高级质感风格","简约大气风格","稳重清晰风格","柔和质感风格","自然高端风格","现代简洁风格","高级稳重风格","治愈清新风格"];
+  const stylesEN = ["High-end minimalist style","Grand and steady style","Premium texture style","Minimalist and grand style","Steady and clear style","Soft texture style","Natural high-end style","Modern clean style","High-end steady style","Healing fresh style"];
+  const slogansCN = ["主营品类+高端简约标语","特色品类+大气稳重标语","招牌品类+高级质感标语","核心品类+简约大气标语","爆款品类+高端质感标语","主营项目+简约稳重标语","特色项目+高端大气标语","招牌项目+简约质感标语","核心项目+高端稳重标语","爆款项目+简约大气标语"];
+  const slogansEN = ["Main category + high-end minimalist slogan","Specialty category + grand steady slogan","Signature category + premium texture slogan","Core category + minimalist grand slogan","Hot-selling category + high-end texture slogan","Main project + clean steady slogan","Special project + high-end grand slogan","Signature project + minimalist texture slogan","Core project + high-end steady slogan","Hot-selling project + minimalist grand slogan"];
+
+  const availableStyles = stylesCN.filter(s=>!usedStylesCN.includes(s));
+  const styleCN = pickUnique(availableStyles);
+  usedStylesCN.push(styleCN);
+  const styleEN = stylesEN[stylesCN.indexOf(styleCN)];
+
+  const availableSlogans = slogansCN.filter(s=>!usedSlogansCN.includes(s));
+  const sloganCN = pickUnique(availableSlogans);
+  usedSlogansCN.push(sloganCN);
+  const sloganEN = slogansEN[slogansCN.indexOf(sloganCN)];
+
+  return {
+    cn:`白天自然光，门头正立面，完整展示，正面平视，无透视畸变，无遮挡，真石漆墙面+发光字门头，石材质感厚重大气，${industry}店铺门头，真石漆墙面、不锈钢背光字、亚克力发光字，品牌店名+${sloganCN}，${styleCN}，8K高清，商业写实，可施工参考`,
+    en:`Daytime natural light, front facade, full display, eye-level view, no distortion, no obstruction, real stone paint wall + illuminated signage, thick premium texture, ${industry} storefront, real stone paint wall, stainless backlit letters, acrylic illuminated letters, brand name + ${sloganEN}, ${styleEN}, 8K ultra HD, commercial realistic render, construction-ready reference`
+  };
+}
+
+// 单条复制
+function copySingle(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.classList.add('copied'); btn.textContent="已复制";
+    setTimeout(()=>{btn.classList.remove('copied'); btn.textContent=btn.dataset.default;},3000);
+  });
+}
+
+// 一键复制全部
+function copyAll(){
+  const allText = allPrompts.map(p=>p.cn+"\n"+p.en).join("\n\n");
+  navigator.clipboard.writeText(allText).then(()=>{alert("✅ 已成功复制全部20组中英文提示词！");});
+}
+
+// 生成20组
+function generatePrompts(){
+  const industry = document.getElementById("industryInput").value.trim();
+  const genBtn = document.getElementById("genBtn");
+  const resultWrap = document.getElementById("resultWrap");
+  if(!industry){alert("请输入店铺行业类型");return;}
+  genBtn.disabled=true; genBtn.textContent="正在生成..."; resultWrap.innerHTML=""; allPrompts=[];
+
+  const usedStylesCN = [];
+  const usedSlogansCN = [];
+
+  setTimeout(()=>{
+    let resultHtml="";
+    for(let i=0;i<10;i++){ // 10个不同风格+标语组合
+      const prompt=createPrompt(industry, usedStylesCN, usedSlogansCN);
+      allPrompts.push(prompt);
+      resultHtml+=`
+      <div class="result-item">
+        <div class="col">
+          <div class="item-text">${i+1}. ${prompt.cn}</div>
+          <button class="copy-btn" data-default="复制中文" onclick="copySingle('${prompt.cn.replace(/'/g,"&apos;")}',this)">复制中文</button>
+        </div>
+        <div class="col">
+          <div class="item-text en">${prompt.en}</div>
+          <button class="copy-btn" data-default="Copy English" onclick="copySingle('${prompt.en.replace(/'/g,"&apos;")}',this)">Copy English</button>
+        </div>
+      </div>`;
+    }
+    resultHtml+=`<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部中英文</button>`;
+    resultWrap.innerHTML=resultHtml;
+    genBtn.disabled=false; genBtn.textContent="🚀 生成20组中英文不重复提示词";
+  },500);
+}
+</script>
+</body>
+</html>·真石漆+发光字门头提示词生成器（中英文双列不重复）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei",sans-serif;}
+body{background:linear-gradient(135deg,#F5F5F5,#E8E8E8);min-height:100vh;padding:20px 0 60px;}
+.header{width:100%;background:linear-gradient(90deg,#78716C,#57534E);color:#fff;text-align:center;padding:40px 20px;margin-bottom:30px;border-radius:0 0 16px 16px;box-shadow:0 4px 16px rgba(120,113,108,0.12);}
+.header h1{font-size:28px;margin-bottom:8px;}
+.header p{font-size:15px;opacity:0.9;}
+.input-wrap{max-width:800px;margin:0 auto 30px;background:#fff;padding:30px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+.label{font-size:16px;color:#1F2937;font-weight:500;margin-bottom:10px;}
+.input-box{width:100%;padding:15px 20px;font-size:16px;border:1px solid #E5E7EB;border-radius:10px;outline:none;transition:0.2s;margin-bottom:20px;}
+.input-box:focus{border-color:#78716C;box-shadow:0 0 0 4px rgba(120,113,108,0.1);}
+.gen-btn{width:100%;padding:16px;background:linear-gradient(90deg,#78716C,#928A85);color:#fff;border:none;border-radius:10px;font-size:17px;font-weight:500;cursor:pointer;transition:0.3s;}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(120,113,108,0.15);}
+.gen-btn:disabled{background:#B9B3AD;cursor:not-allowed;transform:none;}
+.result-wrap{max-width:900px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:12px;}
+.result-item{display:flex;gap:12px;flex-wrap:wrap;}
+.col{flex:1;min-width:350px;background:#fff;padding:15px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:8px;}
+.item-text{font-size:14px;line-height:1.6;color:#374151;}
+.item-text.en{color:#1D4ED8;font-style:italic;}
+.copy-btn{padding:8px 12px;background:#78716C;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;white-space:nowrap;transition:0.2s;}
+.copy-btn:hover{background:#645E59;}
+.copy-btn.copied{background:#CCCCCC !important;color:#666666 !important;cursor:default !important;}
+.copy-all-btn{display:block;margin:20px auto 0;padding:12px 24px;background:#78716C;color:#fff;border:none;border-radius:8px;font-size:15px;cursor:pointer;}
+.copy-all-btn:hover{background:#645E59;}
+@media(max-width:768px){.result-item{flex-direction:column;}}
+</style>
+
+<div class="header">
+  <h1>🪨 古月·真石漆+发光字门头提示词生成器</h1>
+  <p>白天正立面｜平视无遮挡｜8K写实｜中英文双列提示｜每组唯一｜100%可施工</p>
+</div>
+
+<div class="input-wrap">
+  <div class="label">请输入店铺行业类型（必填）</div>
+  <input type="text" class="input-box" id="industryInput" placeholder="例如：高端餐饮、商务会所、建材家居、医美机构、汽车服务、烟酒茶行">
+  <button class="gen-btn" id="genBtn" onclick="generatePrompts()">🚀 生成20组中英文不重复提示词</button>
+</div>
+
+<div class="result-wrap" id="resultWrap"></div>
+
+<script>
+let allPrompts = [];
+
+// 随机抽取并删除保证不重复
+function pickUnique(arr){
+  const idx = Math.floor(Math.random()*arr.length);
+  return arr.splice(idx,1)[0];
+}
+
+// 生成单组中英文提示
+function createPrompt(industry, usedStylesCN, usedSlogansCN){
+  const stylesCN = ["高端简约风格","大气稳重风格","高级质感风格","简约大气风格","稳重清晰风格","柔和质感风格","自然高端风格","现代简洁风格","高级稳重风格","治愈清新风格"];
+  const stylesEN = ["High-end minimalist style","Grand and steady style","Premium texture style","Minimalist and grand style","Steady and clear style","Soft texture style","Natural high-end style","Modern clean style","High-end steady style","Healing fresh style"];
+  const slogansCN = ["主营品类+高端简约标语","特色品类+大气稳重标语","招牌品类+高级质感标语","核心品类+简约大气标语","爆款品类+高端质感标语","主营项目+简约稳重标语","特色项目+高端大气标语","招牌项目+简约质感标语","核心项目+高端稳重标语","爆款项目+简约大气标语"];
+  const slogansEN = ["Main category + high-end minimalist slogan","Specialty category + grand steady slogan","Signature category + premium texture slogan","Core category + minimalist grand slogan","Hot-selling category + high-end texture slogan","Main project + clean steady slogan","Special project + high-end grand slogan","Signature project + minimalist texture slogan","Core project + high-end steady slogan","Hot-selling project + minimalist grand slogan"];
+
+  const availableStyles = stylesCN.filter(s=>!usedStylesCN.includes(s));
+  const styleCN = pickUnique(availableStyles);
+  usedStylesCN.push(styleCN);
+  const styleEN = stylesEN[stylesCN.indexOf(styleCN)];
+
+  const availableSlogans = slogansCN.filter(s=>!usedSlogansCN.includes(s));
+  const sloganCN = pickUnique(availableSlogans);
+  usedSlogansCN.push(sloganCN);
+  const sloganEN = slogansEN[slogansCN.indexOf(sloganCN)];
+
+  return {
+    cn:`白天自然光，门头正立面，完整展示，正面平视，无透视畸变，无遮挡，真石漆墙面+发光字门头，石材质感厚重大气，${industry}店铺门头，真石漆墙面、不锈钢背光字、亚克力发光字，品牌店名+${sloganCN}，${styleCN}，8K高清，商业写实，可施工参考`,
+    en:`Daytime natural light, front facade, full display, eye-level view, no distortion, no obstruction, real stone paint wall + illuminated signage, thick premium texture, ${industry} storefront, real stone paint wall, stainless backlit letters, acrylic illuminated letters, brand name + ${sloganEN}, ${styleEN}, 8K ultra HD, commercial realistic render, construction-ready reference`
+  };
+}
+
+// 单条复制
+function copySingle(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.classList.add('copied'); btn.textContent="已复制";
+    setTimeout(()=>{btn.classList.remove('copied'); btn.textContent=btn.dataset.default;},3000);
+  });
+}
+
+// 一键复制全部
+function copyAll(){
+  const allText = allPrompts.map(p=>p.cn+"\n"+p.en).join("\n\n");
+  navigator.clipboard.writeText(allText).then(()=>{alert("✅ 已成功复制全部20组中英文提示词！");});
+}
+
+// 生成20组
+function generatePrompts(){
+  const industry = document.getElementById("industryInput").value.trim();
+  const genBtn = document.getElementById("genBtn");
+  const resultWrap = document.getElementById("resultWrap");
+  if(!industry){alert("请输入店铺行业类型");return;}
+  genBtn.disabled=true; genBtn.textContent="正在生成..."; resultWrap.innerHTML=""; allPrompts=[];
+
+  const usedStylesCN = [];
+  const usedSlogansCN = [];
+
+  setTimeout(()=>{
+    let resultHtml="";
+    for(let i=0;i<10;i++){ // 10个不同风格+标语组合
+      const prompt=createPrompt(industry, usedStylesCN, usedSlogansCN);
+      allPrompts.push(prompt);
+      resultHtml+=`
+      <div class="result-item">
+        <div class="col">
+          <div class="item-text">${i+1}. ${prompt.cn}</div>
+          <button class="copy-btn" data-default="复制中文" onclick="copySingle('${prompt.cn.replace(/'/g,"&apos;")}',this)">复制中文</button>
+        </div>
+        <div class="col">
+          <div class="item-text en">${prompt.en}</div>
+          <button class="copy-btn" data-default="Copy English" onclick="copySingle('${prompt.en.replace(/'/g,"&apos;")}',this)">Copy English</button>
+        </div>
+      </div>`;
+    }
+    resultHtml+=`<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部中英文</button>`;
+    resultWrap.innerHTML=resultHtml;
+    genBtn.disabled=false; genBtn.textContent="🚀 生成20组中英文不重复提示词";
+  },500);
 }
 </script>
 </body>
